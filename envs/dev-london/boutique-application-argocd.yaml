@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: boutique
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/luisamador/boutique-argocd-demo.git
+    path: envs/dev-london
+  destination:
+    server: https://60D902FAFD324E1B35D707D343B47646.gr7.eu-west-2.eks.amazonaws.com
+    namespace: dev
+  syncPolicy:
+    automated: 
+      selfHeal: true
+      prune: true 
+    syncOptions:    
+    - CreateNamespace=true 
