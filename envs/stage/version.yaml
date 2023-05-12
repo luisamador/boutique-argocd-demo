@@ -8,6 +8,4 @@ spec:
     spec:
       containers:
       - name: server
-        env:
-        - name: REGION
-          value: "london"
+        image: gcr.io/google-samples/microservices-demo/frontend:v0.3.6 #v0.6.0
